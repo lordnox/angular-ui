@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head lang="en">
+
+    <meta charset="utf-8">
+    <title>ng-grid - Bootstrap-AngularJS Table Directive</title>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"></script> 
+
+    <script src="../ng-grid.js"></script>
+    <script src="./controller.js"></script>
+
+  </head>
+  <body ng-controller="Ctrl">
+    <div class="span12">
+      <table class="table table-bordered table-striped" ng-grid >
+          <legend>Todo List</legend>
+          <tr ng-repeat="todo in todos | myOwnFilter:'estimate':3">
+            <td ng-grid-title="Name" ng-grid-name="name">{{todo.name}}</td>
+            <td ng-grid-title="Progress" ng-grid-name="estimate">
+              <div class="progress progress-striped active">
+                <div class="bar" style="width: {{todo.estimate}}%;"></div>
+              </div>
+            </td>
+            <td ng-grid-title="Done" style="text-align: center;" ng-class="{'bg-red': !todo.done, 'bg-green': todo.done}"><i ng-class="{'icon-ok': todo.done, 'icon-remove': !todo.done}"></i></td>
+            <td ng-grid-title="Created" ng-grid-name="created_at">{{todo.created_at | date}}</td>
+            <td ng-grid-title="Updated">{{todo.updated_at | date}}</td>
+          </tr>
+      </table>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary" ng-click="test()">Run some code!</button>
+      <form>
+        <legend>Add Todo</legend>
+        <label>Todo title</label>
+        <input type="text" class="input-medium" placeholder="Title..." ng-model="name"> 
+        <label>Todo date</label>
+        <input type="date" class="input-medium" placeholder="End date..." ng-model="due_date"> 
+        <br/>
+        <button type="submit" class="btn btn-primary" ng-click="add()">Add Todo</button>
+      </form>
+    </div>
+  </body>
+</html>
+

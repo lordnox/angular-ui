@@ -1,0 +1,25 @@
+div.pageNum {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  background-color: #FFFFFF;
+  border-color: #DDDDDD;
+  border-image: none;
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  float: left;
+  line-height: 38px;
+  padding: 0 14px;
+  color: #999999;
+}
+
+.bg-green {
+  background: green !important;
+}
+.bg-red {
+  background: red !important;
+}
